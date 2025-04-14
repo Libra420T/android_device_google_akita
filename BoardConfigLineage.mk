@@ -4,6 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_akita
+
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/aam_compatibility_matrix.xml
 
 # Kernel modules

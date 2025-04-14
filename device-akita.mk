@@ -14,12 +14,17 @@
 # limitations under the License.
 #
 
+# PixelParts <Evolution-X>
+include packages/apps/PixelParts/device.mk
+
+# ViPER4AndroidFX
+# $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+
 PRODUCT_RELEASE_CONFIG_MAPS += $(wildcard vendor/google_devices/release/phones/./pixel_2024_midyear/release_config_map.textproto)
 
-TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_AKITA_VERSION)
-# Keeps flexibility for kasan and ufs builds
-TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_AKITA_DIR)
-TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_AKITA_DIR)/kernel-headers
+TARGET_KERNEL_DIR := device/google/akita-kernels/6.1/25Q1-12919773
+TARGET_BOARD_KERNEL_HEADERS := device/google/akita-kernels/6.1/25Q1-12919773/kernel-headers
+TARGET_PREBUILT_KERNEL := device/google/akita-kernels/6.1/25Q1-12919773/Image.lz4
 
 ifneq ($(TARGET_BOOTS_16K),true)
 PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_AKITA_16K_DEVELOPER_OPTION)
